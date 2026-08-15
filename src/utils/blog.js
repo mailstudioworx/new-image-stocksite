@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { marked } from 'marked';
 
 const postsDirectory = path.join(process.cwd(), 'src/data/blog');
 
@@ -46,10 +47,13 @@ export function getBlogPost(slug) {
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content } = parseFrontMatter(fileContents);
 
+  // Convert Markdown content to HTML for rendering
+  const contentHtml = marked.parse(content);
+
   return {
     slug,
     ...data,
-    content,
+    content: contentHtml,
   };
 }
 
@@ -69,7 +73,7 @@ function parseFrontMatter(fileContents) {
     const [key, ...valueParts] = line.split(':');
     const value = valueParts.join(':').trim();
     if (key && value) {
-      data[key.trim()] = value.replace(/^['"]|['"]$/g, '');
+      data[key.trim()] = value.replace(/^['\"]|['\"]$/g, '');
     }
   });
 
