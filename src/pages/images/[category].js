@@ -73,7 +73,7 @@ export async function getStaticProps({ params }) {
         title: 'Transportation 1',
         thumb: 'https://media.gettyimages.com/id/1510586755/photo/road-side-park-for-bike-riders.jpg?s=612x612&w=0&k=20&c=ewuW1R1FyVu7mqKYsrtY8YmehrMumyFf4OmJFbnaI9o=',
         url: '#',
-        platforms: ['getty', 'shutterstock', 'adobe', 'pond5']
+        platforms: ['https://www.shutterstock.com/g/pencilsmoka?q=transportation', 'shutterstock', 'adobe', 'pond5']
       },
       {
         id: 'transportation-2',
