@@ -73,7 +73,13 @@ export async function getStaticProps({ params }) {
         title: 'Transportation 1',
         thumb: 'https://media.gettyimages.com/id/1510586755/photo/road-side-park-for-bike-riders.jpg?s=612x612&w=0&k=20&c=ewuW1R1FyVu7mqKYsrtY8YmehrMumyFf4OmJFbnaI9o=',
         url: '#',
-        platforms: ['getty:', 'shutterstock', 'adobe', 'pond5']
+        platforms: ['getty', 'shutterstock', 'adobe', 'pond5']
+        platformLinks: {
+          getty: 'https://www.gettyimages.ie/search/2/image?artistexact=olasunkanmi%20ariyo&phrase=lifestyle&sort=mostpopular&license=rf%2Crm&page=2',
+    shutterstock: 'DIFFERENT_SHUTTERSTOCK_URL',
+    adobe: 'DIFFERENT_ADOBE_URL',
+    pond5: 'DIFFERENT_POND5_URL'
+        }
       },
       {
         id: 'transportation-2',
