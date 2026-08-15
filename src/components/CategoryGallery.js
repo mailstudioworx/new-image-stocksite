@@ -29,17 +29,27 @@ export default function CategoryGallery({ category, images, videos, isVideo = fa
               <div className={styles.itemOverlay}>
                 <h3>{item.title}</h3>
                 <div className={styles.platforms}>
-                  {item.platforms.map(platform => (
-                    <a 
-                      key={platform}
-                      href={stockPlatforms[platform].url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.platformLink}
-                    >
-                      {stockPlatforms[platform].name}
-                    </a>
-                  ))}
+                  {item.platforms.map(platform => {
+                    // allow per-item platform override via item.platformLinks[platform]
+                    const platformUrl = (item.platformLinks && item.platformLinks[platform])
+                      ? item.platformLinks[platform]
+                      : (stockPlatforms[platform] && stockPlatforms[platform].url) || '#';
+
+                    const platformName = (stockPlatforms[platform] && stockPlatforms[platform].name) || platform;
+
+                    return (
+                      <a 
+                        key={platform}
+                        href={platformUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.platformLink}
+                        title={`View on ${platformName}`}
+                      >
+                        {platformName}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </div>
